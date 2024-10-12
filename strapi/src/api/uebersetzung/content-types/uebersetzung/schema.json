@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "uebersetzungs",
+  "info": {
+    "singularName": "uebersetzung",
+    "pluralName": "uebersetzungs",
+    "displayName": "Übersetzung"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "ausdrucks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ausdruck.ausdruck",
+      "inversedBy": "uebersetzungs"
+    },
+    "comment": {
+      "type": "richtext"
+    },
+    "wortfamilies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::wortfamilie.wortfamilie",
+      "mappedBy": "uebersetzungs"
+    }
+  }
+}

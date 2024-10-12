@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ausdrucks",
+  "info": {
+    "singularName": "ausdruck",
+    "pluralName": "ausdrucks",
+    "displayName": "Ausdruck",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "points": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 9,
+      "min": 0
+    },
+    "negativeCount": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "text": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "uebersetzungs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::uebersetzung.uebersetzung",
+      "mappedBy": "ausdrucks"
+    },
+    "themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme"
+    },
+    "comment": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wortfamilies",
+  "info": {
+    "singularName": "wortfamilie",
+    "pluralName": "wortfamilies",
+    "displayName": "Wortfamilie",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "root": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "verb": {
+      "type": "string"
+    },
+    "noun": {
+      "type": "string"
+    },
+    "adjective": {
+      "type": "string"
+    },
+    "points": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 9,
+      "min": 0
+    },
+    "negativeCount": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "min": 0
+    },
+    "uebersetzungs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::uebersetzung.uebersetzung",
+      "inversedBy": "wortfamilies"
+    },
+    "comment": {
+      "type": "richtext"
+    },
+    "themes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::theme.theme"
+    }
+  }
+}
